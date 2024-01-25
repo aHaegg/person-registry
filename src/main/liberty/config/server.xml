@@ -7,6 +7,9 @@
         <feature>jsonb-3.0</feature>
 
         <feature>mpOpenAPI-3.1</feature>
+
+        <feature>cdi-4.0</feature>
+        <feature>persistence-3.1</feature>
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
@@ -22,4 +25,15 @@
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime -->
     <ssl id="defaultSSLConfig" trustDefaultCerts="true" />
+
+    <!-- Derby Library Configuration -->
+    <library id="derbyJDBCLib">
+        <fileset dir="lib/global" includes="derby*.jar" />
+    </library>
+
+    <!-- Datasource Configuration -->
+    <dataSource id="personjpadatasource" jndiName="jdbc/personjpadatasource">
+        <jdbcDriver libraryRef="derbyJDBCLib"/>
+        <properties.derby.embedded databaseName="PersonDB" createDatabase="create"/>
+    </dataSource>
 </server>

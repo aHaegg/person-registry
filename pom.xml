@@ -51,6 +51,28 @@
             <plugin>
                 <groupId>io.openliberty.tools</groupId>
                 <artifactId>liberty-maven-plugin</artifactId>
+                <configuration>
+                    <copyDependencies>
+                        <dependencyGroup>
+                            <!-- Derby from https://mvnrepository.com/artifact/org.apache.derby/derby -->
+                            <dependency>
+                                <groupId>org.apache.derby</groupId>
+                                <artifactId>derby</artifactId>
+                                <version>10.16.1.1</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.apache.derby</groupId>
+                                <artifactId>derbyshared</artifactId>
+                                <version>10.16.1.1</version>
+                            </dependency>
+                            <dependency>
+                                <groupId>org.apache.derby</groupId>
+                                <artifactId>derbytools</artifactId>
+                                <version>10.16.1.1</version>
+                            </dependency>
+                        </dependencyGroup>
+                    </copyDependencies>
+                </configuration>
             </plugin>
         </plugins>
     </build>
